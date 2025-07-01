@@ -17,6 +17,10 @@ public class ProductService {
         return productRepository.findAll();
     }
 
+    public List<Product> getBySearch(String keyword) {
+        return productRepository.findByNameContainingIgnoreCaseOrDescriptionContainingIgnoreCase(keyword, keyword);
+    }
+
     public Product getById(Long id) {
         return productRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Produk tidak ditemukan"));
