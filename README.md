@@ -39,3 +39,7 @@ server.port=8080
 ```bash
 ./mvnw spring-boot:run
 ```
+
+5. Import the Postman JSON Collection
+
+6. Test the API
