@@ -2,4 +2,4 @@
 *.cmd text eol=crlf
 
 # Ignore Spring Boot config
-application.properties
+

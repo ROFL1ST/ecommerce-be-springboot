@@ -23,7 +23,19 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.csrf().disable()
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers(
+                                "/api/auth/**",
+                                "/api/products",             // GET all
+                                "/api/products/",            // GET all (redundant slash)
+                                "/api/products/search",      // GET search
+                                "/api/products/{id}"         // GET detail
+                        ).permitAll()
+
+                        // Protected endpoints (requires login)
+                        .requestMatchers(
+                                "/api/products/**"
+                        ).hasAnyRole("ADMIN", "OWNER")
+
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS));
