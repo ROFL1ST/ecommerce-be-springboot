@@ -5,7 +5,7 @@
 1. Clone this repository
 
 ```bash
-https://github.com/ROFL1ST/ecommerce-springboot-api.git
+https://github.com/ROFL1ST/ecommerce-be-springboot.git
 ```
 
 2. Import the project into your Java IDE (e.g., IntelliJ IDEA, Eclipse, VS Code)
